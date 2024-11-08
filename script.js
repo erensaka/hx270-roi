@@ -7,7 +7,7 @@ function generateChart() {
         return;
     }
 
-    const hours = Array.from({ length: 21 }, (_, i) => i);
+    const hours = Array.from({ length: 30 }, (_, i) => i);
     const cumulativeLoss = hours.map(hour => hour * lossPerHour);
     const intersectionPoint = tco / lossPerHour;
 
