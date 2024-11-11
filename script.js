@@ -1,4 +1,4 @@
-let productionLossChart, beltCostChart; // Store chart instances
+let productionLossChart, beltCostChart;
 
 function generateCharts() {
     // Get the input values
@@ -11,14 +11,12 @@ function generateCharts() {
         return;
     }
 
-    // Destroy existing charts if they exist
     if (productionLossChart) productionLossChart.destroy();
     if (beltCostChart) beltCostChart.destroy();
 
-    // Chart 1: Production Loss vs. Loss Hours (1 to 24 hours)
     const lossHours = [];
     const productionLoss = [];
-    for (let i = 1; i <= 24; i++) { // Use integers from 1 to 24
+    for (let i = 1; i <= 24; i++) {
         lossHours.push(i);
         productionLoss.push(lossPerHour * i);
     }
@@ -49,7 +47,7 @@ function generateCharts() {
             scales: {
                 x: {
                     ticks: {
-                        stepSize: 1, // Ensure integer steps
+                        stepSize: 1, 
                     }
                 },
                 y: {
@@ -59,12 +57,11 @@ function generateCharts() {
         }
     });
 
-    // Chart 2: Belt Cost vs. Belt Length
     const beltLengths = [];
     const beltCosts = [];
-    for (let i = 0; i <= 2400; i += 200) { // x-axis range from 0 to 2400 meters with 200 meter increments
+    for (let i = 0; i <= 2400; i += 200) { 
         beltLengths.push(i);
-        beltCosts.push(beltPrice * 1.8 * i); // Multiply belt price per meter by 1.8 (running belt + 80% stored belt)
+        beltCosts.push(beltPrice * 1.8 * i); 
     }
 
     const ctx2 = document.getElementById('beltCostChart').getContext('2d');
@@ -93,7 +90,7 @@ function generateCharts() {
             scales: {
                 x: {
                     ticks: {
-                        stepSize: 200 // x-axis step size
+                        stepSize: 200 
                     }
                 },
                 y: {
@@ -103,11 +100,11 @@ function generateCharts() {
         }
     });
 
-    // Calculate the ROI and belt length
+    
     const roiHours = (tco / lossPerHour).toFixed(2);
     const beltLength = (tco / (beltPrice * 1.8)).toFixed(2);
 
-    // Output ROI calculation and belt length at intersection
+    
     document.getElementById('output').innerHTML = `
         HX270 can pay for itself in ${roiHours} hours of production loss or ${beltLength} meters of belt purchase.
     `;
