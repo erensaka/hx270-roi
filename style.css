@@ -6,13 +6,13 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f4f4f9;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden; 
 }
 
 .container {
     text-align: center;
     width: 90%;
-    max-width: 1200px; /* Increased max-width for more space */
+    max-width: 1200px;
 }
 
 h1 {
@@ -51,9 +51,9 @@ button:hover {
 }
 
 .charts {
-    display: flex; /* Flexbox to place charts side by side */
+    display: flex; 
     justify-content: center;
-    gap: 20px; /* Space between the charts */
+    gap: 20px; 
     margin-top: 20px;
 }
 
